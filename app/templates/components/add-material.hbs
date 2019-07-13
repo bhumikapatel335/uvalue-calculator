@@ -1,0 +1,54 @@
+{{yield}}
+
+<table>
+
+  <thead>
+    <th>
+      Add material
+    </th>
+  </thead>
+
+  <tr>
+    <td><label>Material Name:</label></td>
+  </tr>
+
+  <tr>
+    <td>
+      {{input value=materialName placeholder="Please enter your name here"}}
+      {{#each errors.materialName as |error|}}
+        <span class="error-message">{{error.message}}</span>
+      {{/each}}
+    </td>
+  </tr>
+
+  <tr>
+    <td><label>Thickness:</label></td>
+  </tr>
+
+  <tr>
+    <td>
+      {{input value=thickness placeholder="Please enter your last name here"}}
+      {{#each errors.thickness as |error|}}
+        <span class="error-message">{{error.message}}</span>
+      {{/each}}
+    </td>
+  </tr>
+
+  <tr>
+    <td><label>K-Value:</label></td>
+  </tr>
+
+  <tr>
+    <td>
+      {{input value=kValue placeholder="Please enter your phone number here"}}
+      {{#each errors.kValue as |error|}}
+        <span class="error-message">{{error.message}}</span>
+      {{/each}}
+    </td>
+  </tr>
+
+  <tr>
+    <td><button class="button" {{action 'addMaterial'}}> Add </button></td>
+  </tr>
+
+</table>

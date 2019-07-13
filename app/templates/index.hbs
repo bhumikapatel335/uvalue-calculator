@@ -1,0 +1,68 @@
+<form>
+  {{add-material addMaterial=(action "addMaterial")}}
+</form>
+
+<div>
+
+  <table border="1">
+
+    <thead>
+      <tr>
+        <th colspan="5">U-Value Calculator</th>
+      </tr>
+    </thead>
+
+    <thead>
+      <tr>
+        <th>Material Name</th>
+        <th>Thickness, m</th>
+        <th>K-Value</th>
+        <th>Resistivity, K m<sup>2</sup>/W</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr>
+        <td>Outside Surface</td>
+        <td>-</td>
+        <td>-</td>
+        <td>{{this.outsideSurface}}</td>
+        <td>-</td>
+      </tr>
+
+      {{#each model as |material|}}
+        <tr>
+          <td>{{material.materialName}}</td>
+          <td>{{material.thickness}}</td>
+          <td>{{material.kValue}}</td>
+          <td>{{material.resistivity}}</td>
+          <td><button {{action 'deleteMaterial' material}} class="button"> Delete </button></td>
+        </tr>
+      {{/each}}
+
+      <tr>
+        <td>Inside Surface</td>
+        <td>-</td>
+        <td>-</td>
+        <td>{{this.insideSurface}}</td>
+        <td>-</td>
+      </tr>
+
+
+      <tr>
+        <td colspan="3"><b> Total </b></td>
+        <td> <b> {{this.totalRes}} </b></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td colspan="4"><b> U-Value = 1 / {{this.totalRes}}</b></td>
+        <td><b> {{this.uValue}} W/m<sup>2</sup>K </b> </td>
+      </tr>
+    </tbody>
+
+  </table>
+
+</div>
