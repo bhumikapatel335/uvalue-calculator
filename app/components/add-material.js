@@ -42,13 +42,13 @@ export default Ember.Component.extend({
     if (thickness === undefined || thickness.trim() === '') {
       this.get('errors').add('thickness', "Thickness cannot be empty");
     } else if (isNaN(thickness)) {
-      this.get('errors').add('thickness', "Thickness can only be number");
+      this.get('errors').add('thickness', "Please enter number only");
     }
 
     if (kValue === undefined || kValue.trim() === '') {
       this.get('errors').add('kValue', "K Value cannot be empty");
     } else if (isNaN(kValue)) {
-      this.get('errors').add('kValue', "K Value can only be number");
+      this.get('errors').add('kValue', "Please enter number only");
     }
 
     return this.get('errors.isEmpty');

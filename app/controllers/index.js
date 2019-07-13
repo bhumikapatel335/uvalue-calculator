@@ -9,26 +9,12 @@ export default Ember.Controller.extend({
 
   totalSurface: Number(CONSTANTS.OUTSIDE_SURFACE) + Number(CONSTANTS.INSIDE_SURFACE),
 
-  //totalRes: 0,
-
-  // calculateTotalRes: function() {
-  //   var total = this.get('totalSurface');
-  //   var materials = this.store.peekAll('material');
-  //   materials.forEach(function(material) {
-  //     var reg = material.get('resistivity');
-  //     total = Number(total) + Number(reg);
-  //   });
-  //   this.set('totalRes', total.toFixed(3));
-  //   this.set('uValue', (1 / total).toFixed(3));
-  //
-  // }.observes('model.length'),
-
   totalRes: Ember.computed('model.length', function() {
     var total = this.get('totalSurface');
     var materials = this.store.peekAll('material');
     materials.forEach(function(material) {
-      var reg = material.get('resistivity');
-      total = Number(total) + Number(reg);
+      var resistivity = material.get('resistivity');
+      total = Number(total) + Number(resistivity);
     });
 
     return total.toFixed(3);
